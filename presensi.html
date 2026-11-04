@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#284b62" />
+    <meta
+      name="description"
+      content="Halaman presensi pegawai PPNPN BPKK Kendari"
+    />
+    <title>Presensi Hari Ini | BPKK Kendari</title>
+    <link rel="stylesheet" href="css/presensi.css" />
+    <script src="js/presensi.js" defer></script>
+  </head>
+  <body>
+    <div class="attendance-layout">
+      <aside class="sidebar">
+        <a
+          href="presensi.html"
+          class="sidebar-brand"
+          aria-label="Beranda BPKK Kendari"
+        >
+          <img src="assets/logobpkk.png" alt="Logo BPKK Kendari" />
+          <span>Presensi Pegawai</span>
+        </a>
+
+        <div class="sidebar-section-label">LAYANAN PEGAWAI</div>
+        <nav class="sidebar-nav" aria-label="Navigasi utama">
+          <a href="presensi.html" class="nav-link active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">▦</span>
+            <span>Presensi hari ini</span>
+          </a>
+          <a href="riwayat.html" class="nav-link">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            <span>Riwayat presensi</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <strong>ⓘ Perlu bantuan?</strong>
+            <p>
+              Hubungi admin untuk mendapatkan bantuan terkait akun presensi.
+            </p>
+            <a href="mailto:admin@bpkkkendari.go.id">Hubungi admin →</a>
+          </div>
+          <a href="login.html" class="logout-link">
+            <span aria-hidden="true">↪</span> Keluar akun
+          </a>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="page-identity">
+            <span class="eyebrow">BPKK KENDARI</span>
+            <h1>Portal Presensi Pegawai</h1>
+            <p><a href="login.html">Beranda</a> / Presensi hari ini</p>
+          </div>
+          <div class="account-info">
+            <div class="account-avatar">AR</div>
+            <div class="account-name">
+              <strong>Andi Rahman</strong>
+              <span>Pegawai PPNPN</span>
+            </div>
+            <span class="account-arrow" aria-hidden="true">⌄</span>
+          </div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <h2>Selamat datang, Andi.</h2>
+            <p>Lengkapi aktivitas dan verifikasi sebelum mencatat kehadiran.</p>
+          </div>
+          <div class="current-date">
+            <span aria-hidden="true">▦</span>
+            <time datetime="2026-10-25">Minggu, 25 Oktober 2026</time>
+          </div>
+        </section>
+
+        <section class="summary-grid" aria-label="Ringkasan presensi">
+          <article class="summary-card employee-card">
+            <div class="employee-avatar">AR</div>
+            <div class="employee-details">
+              <h3>Andi Rahman</h3>
+              <p>Staf Administrasi · BPKK Kendari</p>
+              <div class="employee-meta">
+                <span>ID Pegawai<br /><strong>PPNPN-024</strong></span>
+                <span class="status-badge status-neutral">Belum presensi</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="summary-card clock-card">
+            <span class="card-caption"
+              ><span aria-hidden="true">◷</span> Waktu saat ini</span
+            >
+            <div class="clock-value">08:00:00 <small>WITA</small></div>
+            <p>Waktu perangkat</p>
+          </article>
+
+          <article class="summary-card time-card">
+            <span class="card-caption"
+              ><span aria-hidden="true">↘</span> Presensi masuk</span
+            >
+            <div class="time-value">--:-- <small>WITA</small></div>
+            <p class="status-text">
+              <span class="status-dot"></span> Belum tercatat
+            </p>
+          </article>
+
+          <article class="summary-card time-card">
+            <span class="card-caption"
+              ><span aria-hidden="true">↗</span> Presensi pulang</span
+            >
+            <div class="time-value">--:-- <small>WITA</small></div>
+            <p class="status-text">
+              <span class="status-dot status-dot-gray"></span> Belum tercatat
+            </p>
+          </article>
+        </section>
+
+        <section class="work-grid">
+          <div class="left-column">
+            <article class="content-card camera-card">
+              <div class="card-heading">
+                <h3><span class="heading-icon">◎</span> Verifikasi selfie</h3>
+                <span class="mini-badge">Untuk presensi</span>
+              </div>
+              <div class="camera-preview">
+                <div class="camera-frame" id="camera-placeholder">
+                  <span class="frame-corner corner-tl"></span>
+                  <span class="frame-corner corner-tr"></span>
+                  <span class="frame-corner corner-bl"></span>
+                  <span class="frame-corner corner-br"></span>
+
+                  <svg
+                    viewBox="0 0 64 64"
+                    role="img"
+                    aria-label="Ilustrasi kamera"
+                  >
+                    <circle cx="32" cy="22" r="11"></circle>
+                    <path d="M13 54c1-12 8-19 19-19s18 7 19 19"></path>
+                  </svg>
+                </div>
+
+                <video
+                  id="camera-video"
+                  autoplay
+                  playsinline
+                  muted
+                  hidden
+                ></video>
+                <canvas id="camera-canvas" hidden></canvas>
+                <img id="captured-photo" alt="Hasil foto selfie" hidden />
+
+                <strong id="camera-message">Kamera belum diaktifkan</strong>
+                <p id="camera-description">
+                  Posisikan wajah di tengah dengan pencahayaan cukup.
+                </p>
+              </div>
+              <div class="camera-actions">
+                <button
+                  type="button"
+                  id="start-camera"
+                  class="button button-outline button-full"
+                >
+                  <span aria-hidden="true">◎</span> Aktifkan kamera
+                </button>
+
+                <button
+                  type="button"
+                  id="capture-photo"
+                  class="button button-primary"
+                  hidden
+                >
+                  Ambil foto
+                </button>
+
+                <button
+                  type="button"
+                  id="toggle-camera-mirror"
+                  class="button button-outline"
+                  hidden
+                >
+                  Mode Cermin
+                </button>
+
+                <button
+                  type="button"
+                  id="retake-photo"
+                  class="button button-outline"
+                  hidden
+                >
+                  Ambil ulang
+                </button>
+              </div>
+              <p class="helper-text">
+                ⓘ Pratinjau foto akan tersedia setelah kamera diaktifkan.
+              </p>
+            </article>
+
+            <article class="content-card location-card">
+              <div class="card-heading">
+                <h3><span class="heading-icon">⊙</span> Status GPS</h3>
+                <span id="gps-status" class="status-badge status-neutral">
+                  Belum diperiksa
+                </span>
+              </div>
+
+              <div class="location-details">
+                <div class="location-icon" aria-hidden="true">⌖</div>
+                <div>
+                  <div class="distance-value">
+                    <span id="gps-distance">---</span>
+                    <small>meter dari kantor</small>
+                  </div>
+                  <p>Batas radius presensi 500 m</p>
+                </div>
+              </div>
+
+              <div class="gps-information">
+                <div class="gps-info-row">
+                  <span>Akurasi GPS</span>
+                  <strong id="gps-accuracy">Belum tersedia</strong>
+                </div>
+                <div class="gps-info-row">
+                  <span>Latitude</span>
+                  <strong id="gps-latitude">Belum tersedia</strong>
+                </div>
+                <div class="gps-info-row">
+                  <span>Longitude</span>
+                  <strong id="gps-longitude">Belum tersedia</strong>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                id="check-location"
+                class="button button-outline button-full"
+              >
+                <span aria-hidden="true">⊙</span> Perbarui lokasi
+              </button>
+
+              <p id="gps-message" class="helper-text">
+                Lokasi GPS akan diperiksa sebelum presensi dilakukan.
+              </p>
+            </article>
+          </div>
+
+          <div class="right-column">
+            <article class="content-card activity-card">
+              <div class="card-heading">
+                <h3><span class="heading-icon">▤</span> Aktivitas harian</h3>
+                <span class="draft-badge">Draf</span>
+              </div>
+              <p class="card-description">
+                Catat pekerjaan hari ini sebagai bagian dari laporan kehadiran.
+              </p>
+
+              <form class="activity-form" action="#" method="get">
+                <div class="form-row">
+                  <div class="field-group">
+                    <label for="activity-date">Tanggal aktivitas</label>
+                    <input
+                      type="date"
+                      id="activity-date"
+                      name="activity-date"
+                      value="2026-10-25"
+                      required
+                    />
+                  </div>
+                  <div class="field-group">
+                    <label for="activity-category">Kategori kegiatan</label>
+                    <select
+                      id="activity-category"
+                      name="activity-category"
+                      required
+                    >
+                      <option value="">Pilih kategori</option>
+                      <option>Administrasi</option>
+                      <option>Teknologi Informasi</option>
+                      <option>Rapat dan Koordinasi</option>
+                      <option>Pelayanan</option>
+                      <option>Lainnya</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <div class="label-row">
+                    <label for="activity-description">Uraian kegiatan</label>
+                    <span>Maks. 1.000 karakter</span>
+                  </div>
+                  <textarea
+                    id="activity-description"
+                    name="activity-description"
+                    rows="5"
+                    maxlength="1000"
+                    placeholder="Tuliskan pekerjaan yang kamu lakukan hari ini..."
+                    required
+                  ></textarea>
+                </div>
+
+                <label class="confirmation-option">
+                  <input
+                    type="checkbox"
+                    name="activity-confirmation"
+                    required
+                  />
+                  <span
+                    >Saya memastikan uraian kegiatan sesuai dengan pekerjaan
+                    yang saya lakukan hari ini.</span
+                  >
+                </label>
+
+                <button type="button" class="button button-primary button-full">
+                  <span aria-hidden="true">▣</span> Simpan aktivitas
+                </button>
+              </form>
+            </article>
+
+            <article class="content-card attendance-card">
+              <div class="card-heading">
+                <h3><span class="heading-icon">◷</span> Catat kehadiran</h3>
+                <span class="helper-inline">Masuk lalu pulang</span>
+              </div>
+              <div class="attendance-notice">
+                <span aria-hidden="true">ⓘ</span>
+                <p>
+                  Ambil selfie, verifikasi lokasi, dan simpan aktivitas untuk
+                  melanjutkan presensi.
+                </p>
+              </div>
+              <div class="attendance-actions">
+                <button
+                  type="button"
+                  id="attendance-checkin"
+                  class="button button-disabled"
+                  disabled
+                >
+                  <span aria-hidden="true">⊙</span> Presensi masuk
+                </button>
+
+                <button
+                  type="button"
+                  id="attendance-checkout"
+                  class="button button-disabled"
+                  disabled
+                >
+                  <span aria-hidden="true">⇥</span> Presensi pulang
+                </button>
+              </div>
+              <p class="helper-text">
+                Tombol presensi akan diaktifkan setelah persyaratan terpenuhi.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <footer class="main-footer">
+          <span>© 2026 BPKK Kendari · Portal Presensi Pegawai</span>
+          <span>Gunakan akun pribadi untuk mencatat kehadiran.</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

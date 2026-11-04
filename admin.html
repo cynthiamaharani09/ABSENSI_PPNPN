@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#284b62" />
+    <meta name="description" content="Manajemen pegawai BPKK Kendari" />
+    <title>Manajemen Pegawai | BPKK Kendari</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar">
+        <a href="admin.html" class="brand">
+          <img src="assets/logobpkk.png" alt="Logo BPKK Kendari" />
+          <span
+            ><strong>BPKK Kendari</strong
+            ><small>Portal presensi pegawai</small></span
+          >
+        </a>
+        <p class="sidebar-label">ADMINISTRASI</p>
+        <nav class="sidebar-nav" aria-label="Navigasi admin">
+          <a href="admin.html" class="nav-link active" aria-current="page">
+            <span aria-hidden="true">♙</span> Manajemen pegawai
+          </a>
+          <a href="login.html" class="nav-link mobile-logout">
+            <span aria-hidden="true">↪</span> Keluar akun
+          </a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-decoration" aria-hidden="true"></div>
+          <a href="login.html" class="logout-link">
+            <span aria-hidden="true">↪</span> Keluar akun
+          </a>
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar">
+          <div class="page-identity">
+            <h1>Portal presensi pegawai</h1>
+            <p><a href="admin.html">BPKK Kendari</a> / Manajemen pegawai</p>
+          </div>
+          <div class="account-info">
+            <div class="account-avatar">AP</div>
+            <div class="account-name">
+              <strong>Admin PPNPN</strong>
+              <span>Administrator</span>
+            </div>
+            <span class="account-arrow" aria-hidden="true">⌄</span>
+          </div>
+        </header>
+        <section class="page-heading">
+          <div>
+            <h2>Manajemen pegawai</h2>
+            <p>Kelola identitas, penempatan, dan status akun pegawai PPNPN.</p>
+          </div>
+          <button type="button" class="button button-primary" id="add-employee">
+            <span aria-hidden="true">＋</span> Tambah pegawai
+          </button>
+        </section>
+        <section class="stats-grid" aria-label="Ringkasan pegawai">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Total pegawai</span><span class="stat-icon">♙</span>
+            </div>
+            <strong class="stat-number" id="total-employees">8</strong>
+            <p>Seluruh pegawai terdaftar</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Pegawai aktif</span><span class="stat-icon">♧</span>
+            </div>
+            <strong class="stat-number" id="active-employees">7</strong>
+            <p>Akun berstatus aktif</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Pegawai nonaktif</span><span class="stat-icon">♙</span>
+            </div>
+            <strong class="stat-number" id="inactive-employees">1</strong>
+            <p>Akun berstatus nonaktif</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Unit kerja</span><span class="stat-icon">▦</span>
+            </div>
+            <strong class="stat-number" id="unit-count">5</strong>
+            <p>Unit kerja terdaftar</p>
+          </article>
+        </section>
+        <section class="charts-grid" aria-label="Statistik kehadiran pegawai">
+          <!-- Grafik tren kehadiran -->
+          <article class="panel chart-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Tren kehadiran pegawai</h3>
+                <p>Januari–Desember 2026 · Berdasarkan data presensi</p>
+              </div>
+            </div>
+            <div class="chart-legend">
+              <span><i class="legend-box present"></i>Hadir</span>
+              <span><i class="legend-box late"></i>Terlambat</span>
+              <span><i class="legend-box absent"></i>Tidak hadir</span>
+            </div>
+            <div
+              class="bar-chart"
+              role="img"
+              aria-label="Grafik tren kehadiran bulanan"
+            >
+              <div class="y-axis">
+                <span>100%</span>
+                <span>75%</span>
+                <span>50%</span>
+                <span>25%</span>
+                <span>0%</span>
+              </div>
+              <div class="chart-plot">
+                <div class="grid-lines">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span>
+                </div>
+                <!-- Batang grafik dibuat otomatis oleh JavaScript -->
+                <div class="bar-groups" id="attendance-trend-chart"></div>
+              </div>
+            </div>
+            <p class="chart-footnote" id="attendance-trend-note">
+              Memuat data presensi...
+            </p>
+          </article>
+          <!-- Grafik tingkat kehadiran -->
+          <article class="panel rate-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Tingkat kehadiran</h3>
+                <p>Januari–Desember 2026 · Berdasarkan data presensi</p>
+              </div>
+            </div>
+            <div class="rate-number" id="attendance-rate-number">—</div>
+            <div
+              class="line-chart"
+              role="img"
+              aria-label="Grafik tingkat kehadiran bulanan"
+            >
+              <svg
+                id="attendance-rate-chart"
+                viewBox="0 0 360 170"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <g class="line-grid">
+                  <line x1="25" y1="25" x2="350" y2="25" />
+                  <line x1="25" y1="65" x2="350" y2="65" />
+                  <line x1="25" y1="105" x2="350" y2="105" />
+                  <line x1="25" y1="145" x2="350" y2="145" />
+                </g>
+                <!-- Area dan garis akan diisi JavaScript -->
+                <path class="line-area" id="attendance-rate-area" d="" />
+                <polyline
+                  class="line-path"
+                  id="attendance-rate-line"
+                  points=""
+                />
+                <g class="line-points" id="attendance-rate-points"></g>
+                <g class="line-values" id="attendance-rate-values"></g>
+                <g class="line-months" id="attendance-rate-months"></g>
+              </svg>
+            </div>
+            <p class="chart-footnote" id="attendance-rate-note">
+              Memuat data presensi...
+            </p>
+          </article>
+        </section>
+        <!-- ===== REKAP PRESENSI PEGAWAI ===== -->
+        <section class="panel" id="rekap-presensi">
+          <div class="panel-heading">
+            <div>
+              <h3>Rekapitulasi & Log Presensi Pegawai</h3>
+              <p>
+                Pantau dan unduh riwayat presensi masuk, pulang, lokasi GPS,
+                foto, serta aktivitas harian pegawai.
+              </p>
+            </div>
+          </div>
+          <div class="rekap-filters">
+            <div>
+              <label for="rekap-start">Tanggal awal</label>
+              <input type="date" id="rekap-start" />
+            </div>
+            <div>
+              <label for="rekap-end">Tanggal akhir</label>
+              <input type="date" id="rekap-end" />
+            </div>
+            <div>
+              <label for="rekap-employee">Pegawai</label>
+              <select id="rekap-employee">
+                <option value="all">Semua pegawai</option>
+              </select>
+            </div>
+            <div>
+              <label for="rekap-status">Status kehadiran</label>
+              <select id="rekap-status">
+                <option value="all">Semua status</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Terlambat">Terlambat</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+              </select>
+            </div>
+            <button type="button" id="rekap-export">Unduh Rekap CSV</button>
+          </div>
+          <div class="rekap-summary">
+            <div><span>Total log</span><strong id="rekap-total">0</strong></div>
+            <div><span>Hadir</span><strong id="rekap-hadir">0</strong></div>
+            <div>
+              <span>Terlambat</span><strong id="rekap-terlambat">0</strong>
+            </div>
+            <div>
+              <span>Tidak hadir</span><strong id="rekap-absen">0</strong>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="employee-table">
+              <thead>
+                <tr>
+                  <th>Tanggal</th>
+                  <th>Pegawai</th>
+                  <th>Masuk</th>
+                  <th>Pulang</th>
+                  <th>Status</th>
+                  <th>GPS</th>
+                  <th>Detail</th>
+                </tr>
+              </thead>
+              <tbody id="rekap-list"></tbody>
+            </table>
+          </div>
+          <div class="rekap-pagination">
+            <span id="rekap-page-info">Halaman 1</span>
+            <div>
+              <button type="button" id="rekap-prev">← Sebelumnya</button>
+              <button type="button" id="rekap-next">Selanjutnya →</button>
+            </div>
+          </div>
+        </section>
+        <!-- MODAL DETAIL PRESENSI -->
+        <div class="rekap-overlay" id="rekap-modal" hidden>
+          <div
+            class="rekap-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="rekap-modal-title"
+          >
+            <div class="rekap-dialog-header">
+              <h3 id="rekap-modal-title">Detail Presensi</h3>
+              <button type="button" id="rekap-close">×</button>
+            </div>
+            <div id="rekap-detail-content"></div>
+          </div>
+        </div>
+        <section class="panel employees-panel">
+          <div class="employee-heading">
+            <div>
+              <h3>Daftar pegawai</h3>
+              <p>Kelola data pegawai dan status akun.</p>
+            </div>
+          </div>
+          <div class="filter-bar">
+            <div class="search-field">
+              <label for="search-employee">Cari pegawai</label>
+              <input
+                type="search"
+                id="search-employee"
+                placeholder="Cari nama, ID pegawai, atau surel"
+              />
+            </div>
+            <div class="filter-field">
+              <label for="unit-filter">Unit kerja</label>
+              <select id="unit-filter">
+                <option value="all">Semua unit</option>
+                <option value="Kepegawaian">Kepegawaian</option>
+                <option value="Keuangan">Keuangan</option>
+                <option value="Program">Program</option>
+                <option value="Jejaring">Jejaring</option>
+                <option value="Barang Milik Negara">Barang Milik Negara</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="employee-status">Status akun</label>
+              <select id="employee-status">
+                <option value="all">Semua status</option>
+                <option value="Aktif">Aktif</option>
+                <option value="Nonaktif">Nonaktif</option>
+              </select>
+            </div>
+            <button
+              type="button"
+              class="button button-primary export-button"
+              id="export-employees"
+            >
+              Ekspor laporan
+            </button>
+          </div>
+          <div class="table-wrapper">
+            <table class="employee-table">
+              <thead>
+                <tr>
+                  <th scope="col">Pegawai</th>
+                  <th scope="col">Jabatan / Unit kerja</th>
+                  <th scope="col">Surel</th>
+                  <th scope="col">Status akun</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="employee-list"></tbody>
+            </table>
+            <p class="empty-state" id="empty-state" hidden>
+              Tidak ada pegawai yang sesuai dengan pencarian.
+            </p>
+          </div>
+          <div class="table-footer">
+            <span id="employee-count">Menampilkan pegawai</span>
+            <div class="pagination">
+              <button type="button" id="prev-page">← Sebelumnya</button>
+              <span id="page-info">Halaman 1</span>
+              <button type="button" id="next-page">Selanjutnya →</button>
+            </div>
+          </div>
+        </section>
+        <div class="modal-overlay" id="employee-modal" hidden>
+          <section
+            class="employee-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
+            <div class="modal-heading">
+              <div>
+                <h2 id="modal-title">Tambah Pegawai</h2>
+                <p>Lengkapi informasi pegawai di bawah ini.</p>
+              </div>
+              <button
+                type="button"
+                class="modal-close"
+                id="close-modal"
+                aria-label="Tutup formulir"
+              >
+                ×
+              </button>
+            </div>
+            <form id="employee-form">
+              <label for="employee-id">ID Pegawai</label>
+              <input id="employee-id" name="id" required />
+              <label for="employee-name">Nama Lengkap</label>
+              <input id="employee-name" name="nama" required />
+              <label for="employee-position">Jabatan</label>
+              <input id="employee-position" name="jabatan" required />
+              <label for="employee-unit">Unit Kerja</label>
+              <input id="employee-unit" name="unit_kerja" required />
+              <label for="employee-account-status">Status Akun</label>
+              <select id="employee-account-status" name="status_akun" required>
+                <option value="Aktif">Aktif</option>
+                <option value="Nonaktif">Nonaktif</option>
+              </select>
+              <div class="modal-actions">
+                <button type="button" class="button" id="cancel-modal">
+                  Batal
+                </button>
+                <button type="submit" class="button button-primary">
+                  Simpan Data
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+        <footer class="main-footer">
+          <span>© 2026 BPKK Kendari · Portal Presensi Pegawai</span>
+          <span>Halaman administrator</span>
+        </footer>
+      </main>
+    </div>
+    <script>
+      const employeeList = document.getElementById("employee-list");
+      const searchInput = document.getElementById("search-employee");
+      const unitFilter = document.getElementById("unit-filter");
+      const statusFilter = document.getElementById("employee-status");
+      const employeeCount = document.getElementById("employee-count");
+      const emptyState = document.getElementById("empty-state");
+      let employees = [];
+      let currentPage = 1;
+      const employeesPerPage = 10;
+      // Membaca data pegawai dari file JSON
+      async function loadEmployees() {
+        employeeList.replaceChildren();
+        employeeCount.textContent = "Memuat data pegawai...";
+        emptyState.hidden = true;
+        try {
+          const response = await fetch("dummy/data_pegawai_dummy.json");
+          if (!response.ok) {
+            throw new Error("File JSON tidak ditemukan.");
+          }
+          const data = await response.json();
+          const savedEmployees = localStorage.getItem("bpkk_pegawai_v1");
+          employees = savedEmployees
+            ? JSON.parse(savedEmployees)
+            : data.pegawai;
+          if (!savedEmployees) {
+            saveEmployees();
+          }
+          if (!Array.isArray(employees)) {
+            throw new Error("Format data pegawai tidak sesuai.");
+          }
+          populateUnitFilter();
+          updateStatistics();
+          renderEmployees();
+        } catch (error) {
+          console.error("Gagal membaca data pegawai:", error);
+          employeeCount.textContent = "Data pegawai gagal dimuat.";
+          emptyState.textContent =
+            "Periksa lokasi file JSON dan jalankan website melalui server lokal.";
+          emptyState.hidden = false;
+        }
+      }
+      // Memperbarui ringkasan pegawai
+      function updateStatistics() {
+        const active = employees.filter(
+          (employee) => employee.status_akun === "Aktif"
+        ).length;
+        const inactive = employees.filter(
+          (employee) => employee.status_akun === "Nonaktif"
+        ).length;
+        const units = new Set(employees.map((employee) => employee.unit_kerja));
+        document.getElementById("total-employees").textContent =
+          employees.length;
+        document.getElementById("active-employees").textContent = active;
+        document.getElementById("inactive-employees").textContent = inactive;
+        document.getElementById("unit-count").textContent = units.size;
+      }
+      // Menampilkan daftar pegawai sesuai pencarian dan filter
+      function renderEmployees() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const selectedUnit = unitFilter.value;
+        const selectedStatus = statusFilter.value;
+        const filteredEmployees = employees.filter((employee) => {
+          const searchableText = [
+            employee.id,
+            employee.nama,
+            employee.jabatan,
+            employee.unit_kerja,
+          ]
+            .join(" ")
+            .toLowerCase();
+          return (
+            searchableText.includes(keyword) &&
+            (selectedUnit === "all" || employee.unit_kerja === selectedUnit) &&
+            (selectedStatus === "all" ||
+              employee.status_akun === selectedStatus)
+          );
+        });
+        employeeList.replaceChildren();
+        // Hitung jumlah halaman
+        const totalPages = Math.max(
+          1,
+          Math.ceil(filteredEmployees.length / employeesPerPage)
+        );
+        // Pastikan halaman tidak melebihi jumlah halaman tersedia
+        currentPage = Math.min(currentPage, totalPages);
+        // Ambil hanya pegawai untuk halaman aktif
+        const startIndex = (currentPage - 1) * employeesPerPage;
+        const endIndex = startIndex + employeesPerPage;
+        const paginatedEmployees = filteredEmployees.slice(
+          startIndex,
+          endIndex
+        );
+        // Tampilkan pegawai sesuai halaman
+        paginatedEmployees.forEach((employee) => {
+          const row = document.createElement("tr");
+          row.dataset.id = employee.id;
+          const identityCell = document.createElement("td");
+          const identity = document.createElement("div");
+          identity.className = "employee-cell";
+          const avatar = document.createElement("span");
+          avatar.className = "employee-avatar";
+          avatar.textContent = employee.nama
+            .split(/\s+/)
+            .slice(0, 2)
+            .map((part) => part[0])
+            .join("")
+            .toUpperCase();
+          const details = document.createElement("span");
+          const name = document.createElement("strong");
+          const id = document.createElement("small");
+          name.textContent = employee.nama;
+          id.textContent = employee.id;
+          details.append(name, id);
+          identity.append(avatar, details);
+          identityCell.append(identity);
+          row.append(identityCell);
+          row.append(
+            createCell(employee.jabatan + " / " + employee.unit_kerja)
+          );
+          row.append(createCell(employee.email || "-"));
+          const statusCell = document.createElement("td");
+          const status = document.createElement("span");
+          status.className =
+            "status-pill " +
+            (employee.status_akun === "Aktif"
+              ? "active-status"
+              : "inactive-status");
+          status.textContent = employee.status_akun;
+          statusCell.append(status);
+          row.append(statusCell);
+          const actionCell = document.createElement("td");
+          const actions = document.createElement("div");
+          actions.className = "row-actions";
+          [
+            ["Lihat", "view-action"],
+            ["Ubah", "edit-action"],
+            ["Hapus", "delete-action"],
+          ].forEach(([label, className]) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "action-button " + className;
+            button.textContent = label;
+            button.dataset.action = label;
+            button.dataset.id = employee.id;
+            actions.append(button);
+          });
+          actionCell.append(actions);
+          row.append(actionCell);
+          employeeList.append(row);
+        });
+        employeeCount.textContent = `Menampilkan 10 dari ${employees.length} pegawai`;
+        emptyState.textContent =
+          "Tidak ada pegawai yang sesuai dengan pencarian.";
+        emptyState.hidden = filteredEmployees.length > 0;
+        // Perbarui informasi pagination
+        document.getElementById(
+          "page-info"
+        ).textContent = `Halaman ${currentPage} dari ${totalPages}`;
+        document.getElementById("prev-page").disabled = currentPage === 1;
+        document.getElementById("next-page").disabled =
+          currentPage === totalPages;
+      }
+      // Mengisi pilihan unit kerja dari data JSON
+      function populateUnitFilter() {
+        const currentValue = unitFilter.value;
+        const units = [
+          ...new Set(employees.map((employee) => employee.unit_kerja)),
+        ].sort((a, b) => a.localeCompare(b, "id"));
+        unitFilter.replaceChildren();
+        const allOption = document.createElement("option");
+        allOption.value = "all";
+        allOption.textContent = "Semua unit";
+        unitFilter.append(allOption);
+        units.forEach((unit) => {
+          const option = document.createElement("option");
+          option.value = unit;
+          option.textContent = unit;
+          unitFilter.append(option);
+        });
+        unitFilter.value = units.includes(currentValue) ? currentValue : "all";
+      }
+      // Ekspor hasil pencarian ke CSV
+      function exportEmployees() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const filteredEmployees = employees.filter((employee) => {
+          const text = [
+            employee.id,
+            employee.nama,
+            employee.jabatan,
+            employee.unit_kerja,
+          ]
+            .join(" ")
+            .toLowerCase();
+          return (
+            text.includes(keyword) &&
+            (unitFilter.value === "all" ||
+              employee.unit_kerja === unitFilter.value) &&
+            (statusFilter.value === "all" ||
+              employee.status_akun === statusFilter.value)
+          );
+        });
+        const headers = [
+          "ID Pegawai",
+          "Nama",
+          "Jabatan",
+          "Unit Kerja",
+          "Status Akun",
+        ];
+        const rows = filteredEmployees.map((employee) => [
+          employee.id,
+          employee.nama,
+          employee.jabatan,
+          employee.unit_kerja,
+          employee.status_akun,
+        ]);
+        const csv =
+          "\uFEFF" +
+          [headers, ...rows]
+            .map((row) =>
+              row
+                .map((value) => `"${String(value ?? "").replace(/"/g, '""')}"`)
+                .join(",")
+            )
+            .join("\r\n");
+        const blob = new Blob([csv], {
+          type: "text/csv;charset=utf-8;",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "daftar-pegawai-bpkk.csv";
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+      searchInput.addEventListener("input", () => {
+        currentPage = 1;
+        renderEmployees();
+      });
+      unitFilter.addEventListener("change", () => {
+        currentPage = 1;
+        renderEmployees();
+      });
+      statusFilter.addEventListener("change", () => {
+        currentPage = 1;
+        renderEmployees();
+      });
+      document.getElementById("prev-page").addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderEmployees();
+        }
+      });
+      document.getElementById("next-page").addEventListener("click", () => {
+        currentPage++;
+        renderEmployees();
+      });
+      document
+        .getElementById("export-employees")
+        .addEventListener("click", exportEmployees);
+      const STORAGE_KEY = "bpkk_pegawai_v1";
+      const modal = document.getElementById("employee-modal");
+      const employeeForm = document.getElementById("employee-form");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDescription = modal.querySelector(".modal-heading p");
+      const saveButton = employeeForm.querySelector('button[type="submit"]');
+      let editingId = null;
+      let viewingOnly = false;
+      // Simpan data pegawai ke LocalStorage
+      function saveEmployees() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(employees));
+      }
+      // Buka modal dan atur mode formulir
+      function openEmployeeModal(mode, employee = null) {
+        employeeForm.reset();
+        editingId = employee ? employee.id : null;
+        viewingOnly = mode === "view";
+        const isEdit = mode === "edit";
+        const isView = mode === "view";
+        modalTitle.textContent = isView
+          ? "Detail Pegawai"
+          : isEdit
+          ? "Ubah Data Pegawai"
+          : "Tambah Pegawai";
+        modalDescription.textContent = isView
+          ? "Informasi pegawai yang dipilih."
+          : "Lengkapi informasi pegawai di bawah ini.";
+        employeeForm.elements.id.disabled = isView || isEdit;
+        ["id", "nama", "jabatan", "unit_kerja", "status_akun"].forEach(
+          (name) => {
+            employeeForm.elements[name].disabled = isView;
+          }
+        );
+        saveButton.hidden = isView;
+        if (employee) {
+          employeeForm.elements.id.value = employee.id;
+          employeeForm.elements.nama.value = employee.nama;
+          employeeForm.elements.jabatan.value = employee.jabatan;
+          employeeForm.elements.unit_kerja.value = employee.unit_kerja;
+          employeeForm.elements.status_akun.value = employee.status_akun;
+        }
+        modal.hidden = false;
+        const firstField = employeeForm.elements.id;
+        if (!isView && !isEdit) firstField.focus();
+      }
+      // Tutup modal
+      function closeEmployeeModal() {
+        modal.hidden = true;
+        employeeForm.reset();
+        editingId = null;
+        viewingOnly = false;
+        saveButton.hidden = false;
+      }
+      // Tombol tambah pegawai
+      document.getElementById("add-employee").addEventListener("click", () => {
+        openEmployeeModal("add");
+      });
+      document
+        .getElementById("close-modal")
+        .addEventListener("click", closeEmployeeModal);
+      document
+        .getElementById("cancel-modal")
+        .addEventListener("click", closeEmployeeModal);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeEmployeeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) {
+          closeEmployeeModal();
+        }
+      });
+      // Simpan data baru atau perubahan data
+      employeeForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (viewingOnly) return;
+        const newEmployee = {
+          id: employeeForm.elements.id.value.trim(),
+          nama: employeeForm.elements.nama.value.trim(),
+          jabatan: employeeForm.elements.jabatan.value.trim(),
+          unit_kerja: employeeForm.elements.unit_kerja.value.trim(),
+          status_akun: employeeForm.elements.status_akun.value,
+        };
+        if (
+          !newEmployee.id ||
+          !newEmployee.nama ||
+          !newEmployee.jabatan ||
+          !newEmployee.unit_kerja
+        ) {
+          alert("Mohon lengkapi semua kolom.");
+          return;
+        }
+        if (editingId === null) {
+          const duplicateId = employees.some(
+            (employee) =>
+              employee.id.toLowerCase() === newEmployee.id.toLowerCase()
+          );
+          if (duplicateId) {
+            alert("ID pegawai sudah digunakan. Silakan gunakan ID lain.");
+            employeeForm.elements.id.focus();
+            return;
+          }
+          employees.push(newEmployee);
+        } else {
+          const index = employees.findIndex(
+            (employee) => employee.id === editingId
+          );
+          if (index === -1) {
+            alert("Data pegawai tidak ditemukan.");
+            return;
+          }
+          // Pertahankan informasi lain yang mungkin sudah ada
+          employees[index] = {
+            ...employees[index],
+            ...newEmployee,
+            id: editingId,
+          };
+        }
+        const isAdding = editingId === null;
+        saveEmployees();
+        populateUnitFilter();
+        updateStatistics();
+        renderEmployees();
+        closeEmployeeModal();
+        alert(
+          isAdding
+            ? "Pegawai berhasil ditambahkan."
+            : "Data pegawai berhasil diperbarui."
+        );
+      });
+      // Tombol lihat, ubah, dan hapus pada setiap baris
+      employeeList.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-action]");
+        if (!button) return;
+        const id = button.dataset.id;
+        const action = button.dataset.action;
+        const employee = employees.find((item) => item.id === id);
+        if (!employee) return;
+        if (action === "Lihat") {
+          openEmployeeModal("view", employee);
+          return;
+        }
+        if (action === "Ubah") {
+          openEmployeeModal("edit", employee);
+          return;
+        }
+        if (action === "Hapus") {
+          const confirmed = confirm(
+            `Apakah kamu yakin ingin menghapus data ${employee.nama} (${employee.id})?`
+          );
+          if (!confirmed) return;
+          employees = employees.filter((item) => item.id !== id);
+          saveEmployees();
+          populateUnitFilter();
+          updateStatistics();
+          renderEmployees();
+          alert("Data pegawai berhasil dihapus dari prototipe.");
+        }
+      });
+      // Mulai membaca data
+      loadEmployees();
+    </script>
+    <script src="js/rekap.js"></script>
+  </body>
+</html>

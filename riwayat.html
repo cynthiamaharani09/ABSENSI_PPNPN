@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#284b62" />
+    <meta name="description" content="Riwayat presensi pegawai BPKK Kendari" />
+    <title>Riwayat Presensi | BPKK Kendari</title>
+    <link rel="stylesheet" href="css/riwayat.css" />
+  </head>
+  <body>
+    <div class="history-layout">
+      <aside class="sidebar">
+        <a href="presensi.html" class="sidebar-brand">
+          <img src="assets/logobpkk.png" alt="Logo BPKK Kendari" />
+          <span>Presensi Pegawai</span>
+        </a>
+
+        <p class="sidebar-label">LAYANAN PEGAWAI</p>
+        <nav class="sidebar-nav" aria-label="Navigasi utama">
+          <a href="presensi.html" class="nav-link">
+            <span class="nav-icon" aria-hidden="true">▦</span>
+            <span>Presensi hari ini</span>
+          </a>
+          <a href="riwayat.html" class="nav-link active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            <span>Riwayat presensi</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <strong>ⓘ Perlu bantuan?</strong>
+            <p>
+              Hubungi admin untuk mendapatkan bantuan terkait akun presensi.
+            </p>
+            <a href="mailto:admin@bpkkkendari.go.id">Hubungi admin →</a>
+          </div>
+          <a href="login.html" class="logout-link">
+            <span aria-hidden="true">↪</span> Keluar akun
+          </a>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="page-identity">
+            <h1>Portal Presensi Pegawai</h1>
+            <p><a href="presensi.html">BPKK Kendari</a> / Riwayat presensi</p>
+          </div>
+          <div class="account-info">
+            <div class="account-avatar">AR</div>
+            <div class="account-name">
+              <strong>Andi Rahman</strong>
+              <span>Pegawai PPNPN</span>
+            </div>
+            <span class="account-arrow" aria-hidden="true">⌄</span>
+          </div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <h2>Riwayat presensi</h2>
+            <p>Tinjau kehadiran dan catatan presensi bulanan Anda.</p>
+          </div>
+          <div class="heading-actions">
+            <label class="visually-hidden" for="month-filter"
+              >Pilih bulan laporan</label
+            >
+            <select id="month-filter" class="month-select">
+              <option value="2026-09" selected>September 2026</option>
+              <option value="2026-08">Agustus 2026</option>
+              <option value="2026-07">Juli 2026</option>
+              <option value="2026-06">Juni 2026</option>
+              <option value="2026-05">Mei 2026</option>
+              <option value="2026-04">April 2026</option>
+            </select>
+            <button
+              type="button"
+              class="button button-primary"
+              id="download-report"
+            >
+              Unduh rekap <span aria-hidden="true">↓</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Ringkasan kehadiran">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Hari kerja</span>
+              <span class="stat-icon" aria-hidden="true">▣</span>
+            </div>
+            <div class="stat-number">22 <small>hari</small></div>
+            <p>Periode September</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Total hadir</span>
+              <span class="stat-icon" aria-hidden="true">⊙</span>
+            </div>
+            <div class="stat-number">20 <small>hari</small></div>
+            <p class="positive-text">Kehadiran tercatat</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Terlambat</span>
+              <span class="stat-icon" aria-hidden="true">◷</span>
+            </div>
+            <div class="stat-number">2 <small>hari</small></div>
+            <p>Perlu diperhatikan</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Izin & sakit</span>
+              <span class="stat-icon" aria-hidden="true">▤</span>
+            </div>
+            <div class="stat-number">2 <small>hari</small></div>
+            <p>Periode September</p>
+          </article>
+        </section>
+
+        <section class="charts-grid" aria-label="Visualisasi presensi">
+          <article class="panel trend-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Tren kehadiran</h3>
+                <p>April–September 2026</p>
+              </div>
+              <span class="panel-note">6 bulan terakhir</span>
+            </div>
+
+            <div class="chart-legend">
+              <span><i class="legend-box legend-present"></i>Tepat waktu</span>
+              <span><i class="legend-box legend-late"></i>Terlambat</span>
+            </div>
+
+            <div
+              class="bar-chart"
+              role="img"
+              aria-label="Grafik contoh jumlah kehadiran per bulan dari April hingga September 2026"
+            >
+              <div class="y-axis" aria-hidden="true">
+                <span>25</span><span>20</span><span>15</span><span>10</span
+                ><span>5</span><span>0</span>
+              </div>
+              <div class="chart-plot">
+                <div class="grid-lines" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span><span></span>
+                </div>
+                <div class="bar-groups">
+                  <div class="bar-group">
+                    <strong>20</strong>
+                    <div class="bar-stack" style="--present: 68%; --late: 12%">
+                      <span class="bar-present"></span
+                      ><span class="bar-late"></span>
+                    </div>
+                    <span class="bar-label">Apr</span>
+                  </div>
+                  <div class="bar-group">
+                    <strong>18</strong>
+                    <div class="bar-stack" style="--present: 59%; --late: 13%">
+                      <span class="bar-present"></span
+                      ><span class="bar-late"></span>
+                    </div>
+                    <span class="bar-label">Mei</span>
+                  </div>
+                  <div class="bar-group">
+                    <strong>20</strong>
+                    <div class="bar-stack" style="--present: 67%; --late: 13%">
+                      <span class="bar-present"></span
+                      ><span class="bar-late"></span>
+                    </div>
+                    <span class="bar-label">Jun</span>
+                  </div>
+                  <div class="bar-group">
+                    <strong>22</strong>
+                    <div class="bar-stack" style="--present: 75%; --late: 13%">
+                      <span class="bar-present"></span
+                      ><span class="bar-late"></span>
+                    </div>
+                    <span class="bar-label">Jul</span>
+                  </div>
+                  <div class="bar-group">
+                    <strong>19</strong>
+                    <div class="bar-stack" style="--present: 64%; --late: 12%">
+                      <span class="bar-present"></span
+                      ><span class="bar-late"></span>
+                    </div>
+                    <span class="bar-label">Agu</span>
+                  </div>
+                  <div class="bar-group">
+                    <strong>20</strong>
+                    <div class="bar-stack" style="--present: 67%; --late: 13%">
+                      <span class="bar-present"></span
+                      ><span class="bar-late"></span>
+                    </div>
+                    <span class="bar-label">Sep</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="chart-footnote">
+              Data grafik merupakan ilustrasi untuk rancangan awal.
+            </p>
+          </article>
+
+          <article class="panel percentage-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Persentase presensi</h3>
+                <p>September 2026</p>
+              </div>
+            </div>
+
+            <div class="percentage-content">
+              <div
+                class="donut-chart"
+                role="img"
+                aria-label="Ilustrasi persentase kehadiran 90,9 persen"
+              >
+                <div class="donut-center">
+                  <strong>90,9%</strong>
+                  <span>Total hadir</span>
+                </div>
+              </div>
+
+              <div class="percentage-legend">
+                <div class="percentage-item">
+                  <i class="legend-box legend-present"></i>
+                  <div><strong>Tepat waktu</strong><span>18 hari</span></div>
+                  <b>81,8%</b>
+                </div>
+                <div class="percentage-item">
+                  <i class="legend-box legend-late"></i>
+                  <div><strong>Terlambat</strong><span>2 hari</span></div>
+                  <b>9,1%</b>
+                </div>
+                <div class="percentage-item">
+                  <i class="legend-box legend-permission"></i>
+                  <div><strong>Izin</strong><span>1 hari</span></div>
+                  <b>4,55%</b>
+                </div>
+                <div class="percentage-item">
+                  <i class="legend-box legend-sick"></i>
+                  <div><strong>Sakit</strong><span>1 hari</span></div>
+                  <b>4,55%</b>
+                </div>
+              </div>
+            </div>
+            <p class="chart-footnote">
+              Persentase dihitung dari total 22 hari kerja.
+            </p>
+          </article>
+        </section>
+
+        <section class="panel records-panel">
+          <div class="records-heading">
+            <div>
+              <h3>Catatan presensi harian</h3>
+              <p id="records-caption">September 2026 · Andi Rahman · PP-024</p>
+            </div>
+            <label class="visually-hidden" for="status-filter"
+              >Filter status presensi</label
+            >
+            <select id="status-filter" class="status-select">
+              <option value="all">Semua status</option>
+              <option value="Tepat waktu">Tepat waktu</option>
+              <option value="Terlambat">Terlambat</option>
+              <option value="Izin">Izin</option>
+              <option value="Sakit">Sakit</option>
+              <option value="Tanpa keterangan">Tanpa keterangan</option>
+            </select>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="attendance-table">
+              <thead>
+                <tr>
+                  <th scope="col">Tanggal</th>
+                  <th scope="col">Hari</th>
+                  <th scope="col">Jam masuk</th>
+                  <th scope="col">Jam pulang</th>
+                  <th scope="col">Durasi tercatat</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody id="attendance-records">
+                <tr data-status="Tepat waktu">
+                  <td>01 Sep 2026</td>
+                  <td>Selasa</td>
+                  <td>07:43</td>
+                  <td>16:05</td>
+                  <td>8j 22m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>02 Sep 2026</td>
+                  <td>Rabu</td>
+                  <td>07:51</td>
+                  <td>16:03</td>
+                  <td>8j 12m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Terlambat">
+                  <td>03 Sep 2026</td>
+                  <td>Kamis</td>
+                  <td>08:12</td>
+                  <td>16:10</td>
+                  <td>7j 58m</td>
+                  <td>
+                    <span class="status-pill status-late">Terlambat</span>
+                  </td>
+                  <td>Terlambat 12 menit</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>04 Sep 2026</td>
+                  <td>Jumat</td>
+                  <td>07:46</td>
+                  <td>16:32</td>
+                  <td>8j 46m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>07 Sep 2026</td>
+                  <td>Senin</td>
+                  <td>07:48</td>
+                  <td>16:02</td>
+                  <td>8j 14m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>08 Sep 2026</td>
+                  <td>Selasa</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>
+                    <span class="status-pill status-permission">Izin</span>
+                  </td>
+                  <td>Keperluan keluarga</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>09 Sep 2026</td>
+                  <td>Rabu</td>
+                  <td>07:39</td>
+                  <td>16:06</td>
+                  <td>8j 27m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>10 Sep 2026</td>
+                  <td>Kamis</td>
+                  <td>07:53</td>
+                  <td>16:04</td>
+                  <td>8j 11m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>11 Sep 2026</td>
+                  <td>Jumat</td>
+                  <td>07:44</td>
+                  <td>16:35</td>
+                  <td>8j 51m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+                <tr data-status="Tepat waktu">
+                  <td>14 Sep 2026</td>
+                  <td>Senin</td>
+                  <td>07:50</td>
+                  <td>16:08</td>
+                  <td>8j 18m</td>
+                  <td>
+                    <span class="status-pill status-on-time">Tepat waktu</span>
+                  </td>
+                  <td>Presensi lengkap</td>
+                </tr>
+              </tbody>
+            </table>
+            <p id="empty-records" class="empty-records" hidden>
+              Tidak ada catatan dengan status tersebut.
+            </p>
+          </div>
+
+          <div class="table-footer">
+            <span id="record-count">Menampilkan 10 catatan contoh</span>
+            <nav class="pagination" aria-label="Navigasi halaman tabel">
+              <button type="button" disabled aria-label="Halaman sebelumnya">
+                ‹
+              </button>
+              <button type="button" class="page-active" aria-current="page">
+                1
+              </button>
+              <button type="button" disabled aria-label="Halaman 2">2</button>
+              <button type="button" disabled aria-label="Halaman 3">3</button>
+              <button type="button" disabled aria-label="Halaman berikutnya">
+                ›
+              </button>
+            </nav>
+          </div>
+        </section>
+
+        <footer class="main-footer">
+          <span>© 2026 BPKK Kendari · Portal Presensi Pegawai</span>
+          <span>Riwayat kehadiran pribadi</span>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const statusFilter = document.getElementById("status-filter");
+      const records = [...document.querySelectorAll("#attendance-records tr")];
+      const recordCount = document.getElementById("record-count");
+      const emptyRecords = document.getElementById("empty-records");
+
+      function filterRecords() {
+        const selectedStatus = statusFilter.value;
+        let visibleCount = 0;
+
+        records.forEach((row) => {
+          const matches =
+            selectedStatus === "all" ||
+            row.querySelector(".status-pill").textContent.trim() ===
+              selectedStatus;
+
+          row.hidden = !matches;
+          if (matches) visibleCount++;
+        });
+
+        recordCount.textContent = `Menampilkan ${visibleCount} catatan contoh`;
+        emptyRecords.hidden = visibleCount > 0;
+      }
+
+      statusFilter.addEventListener("change", filterRecords);
+
+      document
+        .getElementById("download-report")
+        .addEventListener("click", () => {
+          const visibleRows = records.filter((row) => !row.hidden);
+          const headers = [
+            ...document.querySelectorAll(".attendance-table thead th"),
+          ].map((cell) => cell.textContent.trim());
+
+          const csvRows = [
+            headers,
+            ...visibleRows.map((row) =>
+              [...row.querySelectorAll("td")].map((cell) =>
+                cell.textContent.trim()
+              )
+            ),
+          ];
+
+          const csv =
+            "\uFEFF" +
+            csvRows
+              .map((row) =>
+                row.map((value) => `"${value.replace(/"/g, '""')}"`).join(",")
+              )
+              .join("\r\n");
+
+          const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "rekap-presensi-september-2026.csv";
+          link.click();
+          URL.revokeObjectURL(url);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,356 @@
+{
+  "keterangan": "Data dummy untuk pengembangan website presensi pegawai.",
+  "total_pegawai": 50,
+  "pegawai": [
+    {
+      "id": "PGW-001",
+      "nama": "Dr. Ahmad Pratama",
+      "jabatan": "Kepala Balai",
+      "unit_kerja": "Kepala",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-002",
+      "nama": "Dra. Siti Rahmawati",
+      "jabatan": "Kepala Subbagian Umum",
+      "unit_kerja": "Subbagian Umum",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-003",
+      "nama": "Andi Setiawan",
+      "jabatan": "Analis Kepegawaian",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-004",
+      "nama": "Nur Aisyah",
+      "jabatan": "Pengelola Data Kepegawaian",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-005",
+      "nama": "Muhammad Ridwan",
+      "jabatan": "Pengadministrasi Kepegawaian",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-006",
+      "nama": "Dewi Anggraini",
+      "jabatan": "Analis Sumber Daya Manusia",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-007",
+      "nama": "Rizky Firmansyah",
+      "jabatan": "Pengelola Administrasi Pegawai",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-008",
+      "nama": "Fitri Handayani",
+      "jabatan": "Pengadministrasi Umum",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-009",
+      "nama": "Fajar Maulana",
+      "jabatan": "Staf Kepegawaian",
+      "unit_kerja": "Kepegawaian",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-010",
+      "nama": "Sri Wahyuni",
+      "jabatan": "Bendahara Pengeluaran",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-011",
+      "nama": "Arif Hidayat",
+      "jabatan": "Analis Keuangan",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-012",
+      "nama": "Maya Puspitasari",
+      "jabatan": "Pengelola Anggaran",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-013",
+      "nama": "Ilham Saputra",
+      "jabatan": "Pengadministrasi Keuangan",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-014",
+      "nama": "Nina Kurnia",
+      "jabatan": "Verifikator Keuangan",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-015",
+      "nama": "Dedi Kurniawan",
+      "jabatan": "Pengelola Pembayaran",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-016",
+      "nama": "Rahmat Hidayat",
+      "jabatan": "Staf Keuangan",
+      "unit_kerja": "Keuangan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-017",
+      "nama": "Budi Santoso",
+      "jabatan": "Perencana Program",
+      "unit_kerja": "Program",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-018",
+      "nama": "Lina Marlina",
+      "jabatan": "Analis Program dan Kegiatan",
+      "unit_kerja": "Program",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-019",
+      "nama": "Agus Setiawan",
+      "jabatan": "Pengadministrasi Program",
+      "unit_kerja": "Program",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-020",
+      "nama": "Yusuf Ramadhan",
+      "jabatan": "Pengelola Barang Milik Negara",
+      "unit_kerja": "Barang Milik Negara (BMN)",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-021",
+      "nama": "Rina Oktaviani",
+      "jabatan": "Pengadministrasi BMN",
+      "unit_kerja": "Barang Milik Negara (BMN)",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-022",
+      "nama": "Dimas Prakoso",
+      "jabatan": "Pranata Komputer",
+      "unit_kerja": "IT",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-023",
+      "nama": "Citra Lestari",
+      "jabatan": "Pengelola Sistem Informasi",
+      "unit_kerja": "IT",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-024",
+      "nama": "Bayu Kurniawan",
+      "jabatan": "Teknisi Teknologi Informasi",
+      "unit_kerja": "IT",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-025",
+      "nama": "Hendra Saputra",
+      "jabatan": "Koordinator Kegiatan TKM",
+      "unit_kerja": "TKM",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-026",
+      "nama": "Putri Amelia",
+      "jabatan": "Fasilitator TKM",
+      "unit_kerja": "TKM",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-027",
+      "nama": "Rudi Hartono",
+      "jabatan": "Pendamping TKM",
+      "unit_kerja": "TKM",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-028",
+      "nama": "Salsa Nabila",
+      "jabatan": "Pengelola Data TKM",
+      "unit_kerja": "TKM",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-029",
+      "nama": "Wahyu Firmansyah",
+      "jabatan": "Staf Pelaksanaan TKM",
+      "unit_kerja": "TKM",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-030",
+      "nama": "Intan Permata",
+      "jabatan": "Staf Administrasi TKM",
+      "unit_kerja": "TKM",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-031",
+      "nama": "Fikri Akbar",
+      "jabatan": "Koordinator Jejaring",
+      "unit_kerja": "Jejaring",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-032",
+      "nama": "Melati Sari",
+      "jabatan": "Pengelola Kemitraan",
+      "unit_kerja": "Jejaring",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-033",
+      "nama": "Rian Maulana",
+      "jabatan": "Analis Kerja Sama",
+      "unit_kerja": "Jejaring",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-034",
+      "nama": "Ayu Safitri",
+      "jabatan": "Pengadministrasi Jejaring",
+      "unit_kerja": "Jejaring",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-035",
+      "nama": "Taufik Ismail",
+      "jabatan": "Staf Hubungan Kelembagaan",
+      "unit_kerja": "Jejaring",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-036",
+      "nama": "Nadia Putri",
+      "jabatan": "Staf Kemitraan",
+      "unit_kerja": "Jejaring",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-037",
+      "nama": "Jamaluddin",
+      "jabatan": "Petugas Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-038",
+      "nama": "Hasna",
+      "jabatan": "Petugas Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-039",
+      "nama": "La Ode Arman",
+      "jabatan": "Petugas Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-040",
+      "nama": "Murniati",
+      "jabatan": "Petugas Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-041",
+      "nama": "Sudirman",
+      "jabatan": "Petugas Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-042",
+      "nama": "Wa Ode Nurlia",
+      "jabatan": "Petugas Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-043",
+      "nama": "Rahim",
+      "jabatan": "Koordinator Kebersihan",
+      "unit_kerja": "Kebersihan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-044",
+      "nama": "Asrul",
+      "jabatan": "Koordinator Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-045",
+      "nama": "Firman",
+      "jabatan": "Petugas Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-046",
+      "nama": "La Ode Yusuf",
+      "jabatan": "Petugas Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-047",
+      "nama": "Ruslan",
+      "jabatan": "Petugas Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-048",
+      "nama": "Samsul Bahri",
+      "jabatan": "Petugas Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-049",
+      "nama": "Junaidi",
+      "jabatan": "Petugas Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    },
+    {
+      "id": "PGW-050",
+      "nama": "Halim",
+      "jabatan": "Petugas Keamanan",
+      "unit_kerja": "Keamanan",
+      "status_akun": "Aktif"
+    }
+  ]
+}
