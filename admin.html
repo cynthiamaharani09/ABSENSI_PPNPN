@@ -13,10 +13,10 @@
       <aside class="sidebar">
         <a href="admin.html" class="brand">
           <img src="assets/logobpkk.png" alt="Logo BPKK Kendari" />
-          <span
-            ><strong>BPKK Kendari</strong
-            ><small>Portal presensi pegawai</small></span
-          >
+          <span>
+            <strong>BPKK Kendari</strong>
+            <small>Portal presensi pegawai</small>
+          </span>
         </a>
         <p class="sidebar-label">ADMINISTRASI</p>
         <nav class="sidebar-nav" aria-label="Navigasi admin">
@@ -61,28 +61,32 @@
         <section class="stats-grid" aria-label="Ringkasan pegawai">
           <article class="stat-card">
             <div class="stat-top">
-              <span>Total pegawai</span><span class="stat-icon">♙</span>
+              <span>Total pegawai</span>
+              <span class="stat-icon">♙</span>
             </div>
             <strong class="stat-number" id="total-employees">8</strong>
             <p>Seluruh pegawai terdaftar</p>
           </article>
           <article class="stat-card">
             <div class="stat-top">
-              <span>Pegawai aktif</span><span class="stat-icon">♧</span>
+              <span>Pegawai aktif</span>
+              <span class="stat-icon">♧</span>
             </div>
             <strong class="stat-number" id="active-employees">7</strong>
             <p>Akun berstatus aktif</p>
           </article>
           <article class="stat-card">
             <div class="stat-top">
-              <span>Pegawai nonaktif</span><span class="stat-icon">♙</span>
+              <span>Pegawai nonaktif</span>
+              <span class="stat-icon">♙</span>
             </div>
             <strong class="stat-number" id="inactive-employees">1</strong>
             <p>Akun berstatus nonaktif</p>
           </article>
           <article class="stat-card">
             <div class="stat-top">
-              <span>Unit kerja</span><span class="stat-icon">▦</span>
+              <span>Unit kerja</span>
+              <span class="stat-icon">▦</span>
             </div>
             <strong class="stat-number" id="unit-count">5</strong>
             <p>Unit kerja terdaftar</p>
@@ -116,8 +120,11 @@
               </div>
               <div class="chart-plot">
                 <div class="grid-lines">
-                  <span></span><span></span><span></span><span></span
-                  ><span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
                 <!-- Batang grafik dibuat otomatis oleh JavaScript -->
                 <div class="bar-groups" id="attendance-trend-chart"></div>
@@ -208,13 +215,21 @@
             <button type="button" id="rekap-export">Unduh Rekap CSV</button>
           </div>
           <div class="rekap-summary">
-            <div><span>Total log</span><strong id="rekap-total">0</strong></div>
-            <div><span>Hadir</span><strong id="rekap-hadir">0</strong></div>
             <div>
-              <span>Terlambat</span><strong id="rekap-terlambat">0</strong>
+              <span>Total log</span>
+              <strong id="rekap-total">0</strong>
             </div>
             <div>
-              <span>Tidak hadir</span><strong id="rekap-absen">0</strong>
+              <span>Hadir</span>
+              <strong id="rekap-hadir">0</strong>
+            </div>
+            <div>
+              <span>Terlambat</span>
+              <strong id="rekap-terlambat">0</strong>
+            </div>
+            <div>
+              <span>Tidak hadir</span>
+              <strong id="rekap-absen">0</strong>
             </div>
           </div>
           <div class="table-wrapper">
@@ -418,6 +433,12 @@
             "Periksa lokasi file JSON dan jalankan website melalui server lokal.";
           emptyState.hidden = false;
         }
+      }
+      // Membuat elemen tabel dengan aman
+      function createCell(value) {
+        const cell = document.createElement("td");
+        cell.textContent = value ?? "-";
+        return cell;
       }
       // Memperbarui ringkasan pegawai
       function updateStatistics() {
